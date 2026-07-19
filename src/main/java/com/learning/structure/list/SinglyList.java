@@ -1,4 +1,4 @@
-package com.learning.algo.structure.list;
+package com.learning.structure.list;
 
 public class SinglyList {
   Node head;

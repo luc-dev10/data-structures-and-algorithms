@@ -1,4 +1,4 @@
-package com.learning.algo.structure.queue;
+package com.learning.structure.queue;
 
 public class ArrayQueue {
   int[] array = new int[3];

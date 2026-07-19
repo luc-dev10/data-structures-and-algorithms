@@ -1,4 +1,4 @@
-package com.learning.algo.structure.deque;
+package com.learning.structure.deque;
 
 public class ArrayDeque {
   int[] array = new int[3];

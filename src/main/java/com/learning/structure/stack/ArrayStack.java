@@ -1,4 +1,4 @@
-package com.learning.algo.structure.stack;
+package com.learning.structure.stack;
 
 public class ArrayStack {
   int[] array = new int[3];
