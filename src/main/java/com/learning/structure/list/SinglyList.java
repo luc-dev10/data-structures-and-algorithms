@@ -1,156 +1,110 @@
 package com.learning.structure.list;
 
 public class SinglyList {
-  Node head;
-  Node tail;
+  Node dummy;
   int size;
 
   public SinglyList() {
-    this.head = null;
-    this.tail = null;
+    this.dummy = new Node(-1);
     this.size = 0;
   }
 
-  private Node getNode(int index) {
-    if (index < 0 || index >= this.size) throw new IndexOutOfBoundsException();
-
-    Node current = head;
-
-    for (int i = 0; i < index; i++) {
-      current = current.next;
+  private Node getPrevious(int index) {
+    Node previous = this.dummy;
+    int i = 0;
+    while (i < index) {
+      previous = previous.next;
+      i++;
     }
 
-    return current;
+    return previous;
   }
 
   public void addFirst(int value) {
+    Node next = this.dummy.next;
     Node node = new Node(value);
-    if (this.head == null) {
-      this.head = node;
-      this.tail = node;
-    } else {
-      node.next = this.head;
-      this.head = node;
-    }
-
+    this.dummy.next = node;
+    node.next = next;
     this.size++;
   }
 
   public void add(int value) {
-    if (this.size == 0) {
-      this.addFirst(value);
-      return;
+    Node previous = this.dummy;
+    Node current = previous.next;
+    while (current != null) {
+      previous = current;
+      current = current.next;
     }
 
-    Node node = new Node(value);
-    this.tail.next = node;
-    this.tail = node;
+    previous.next = new Node(value);
     this.size++;
   }
 
   public void add(int index, int value) {
     if (index < 0 || index > this.size) return;
-
-    if (index == 0) {
-      this.addFirst(value);
-      return;
-    }
-
-    if (this.size == index) {
-      this.add(value);
-      return;
-    }
-
-    Node previousNode = this.getNode(index - 1);
-    Node currentNode = new Node(value);
-    Node nextNode = previousNode.next;
-    previousNode.next = currentNode;
-    currentNode.next = nextNode;
+    Node previous = this.getPrevious(index);
+    Node temp = previous.next;
+    Node newNode = new Node(value);
+    previous.next = newNode;
+    newNode.next = temp;
     this.size++;
   }
 
   public void set(int index, int value) {
     if (index < 0 || index >= this.size) return;
-
-    Node currentNode = this.getNode(index);
-    currentNode.value = value;
+    Node previousNode = this.getPrevious(index);
+    previousNode.next.value = value;
   }
 
   public int get(int index) {
-    Node node = this.getNode(index);
-    return node != null ? node.value : -1;
+    if (index < 0 || index >= this.size) return -1;
+    Node previousNode = this.getPrevious(index);
+    return previousNode.next.value;
   }
 
   public int remove(int index) {
     if (index < 0 || index >= this.size) return -1;
-
-    if (index == 0) {
-      return this.removeFirst();
-    }
-
-    if (index == this.size - 1) {
-      return this.removeLast();
-    }
-
-    Node previousNode = this.getNode(index - 1);
-    Node currentNode = this.getNode(index);
-    int currentValue = currentNode.value;
-    previousNode.next = currentNode.next;
-    currentNode.next = null;
+    Node previous = this.getPrevious(index);
+    Node current = previous.next;
+    previous.next = current.next;
     this.size--;
-    return currentValue;
+    return current.value;
   }
 
   public int removeFirst() {
     if (this.size == 0) return -1;
-
-    int temp = this.head.value;
-
-    if (this.size == 1) {
-      this.head = null;
-      this.tail = null;
-    } else {
-      this.head = this.head.next;
-    }
-
+    Node current = this.dummy.next;
+    this.dummy.next = current.next;
     this.size--;
-    return temp;
+    return current.value;
   }
 
   public int removeLast() {
     if (this.size == 0) return -1;
-
-    int temp = this.tail.value;
-
-    if (this.size == 1) {
-      this.head = null;
-      this.tail = null;
-    } else {
-      Node previousNode = this.getNode(this.size - 2);
-      previousNode.next = null;
-      this.tail = previousNode;
+    Node previous = this.dummy;
+    Node current = previous.next;
+    while (current.next != null) {
+      previous = current;
+      current = current.next;
     }
-
+    previous.next = null;
     this.size--;
-    return temp;
+    return current.value;
   }
 
   public void reverse() {
     if (this.size < 2) return;
+    Node previous = null;
+    Node current = this.dummy.next;
 
-    Node currentNode = this.head;
-    Node previousNode = null;
-
-    this.tail = this.head;
-
-    while (currentNode != null) {
-      Node nextNode = currentNode.next;
-      currentNode.next = previousNode;
-      previousNode = currentNode;
-      currentNode = nextNode;
+    while (current != null) {
+      Node next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
     }
 
-    this.head = previousNode;
+    this.dummy.next = previous;
   }
 
   static class Node {
