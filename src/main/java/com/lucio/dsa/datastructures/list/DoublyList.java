@@ -12,6 +12,14 @@ public class DoublyList {
     this.tail.previous = this.head;
   }
 
+  public int size() {
+    return this.size;
+  }
+
+  public boolean isEmpty() {
+    return this.size == 0;
+  }
+
   public int getFirst() {
     return this.head.next != this.tail ? this.head.next.value : -1;
   }
@@ -54,7 +62,7 @@ public class DoublyList {
   }
 
   public void add(int index, int value) {
-    if (this.head.next == this.tail || index > this.size || index < 0) return;
+    if (this.isEmpty() || index > this.size || index < 0) return;
 
     Node current = this.head.next;
     int i = 0;
@@ -72,19 +80,60 @@ public class DoublyList {
     this.size++;
   }
 
-  public int removeFirst(int value) {
-    return -1;
+  public int removeFirst() {
+    if (this.isEmpty()) return -1;
+    Node current = this.head.next;
+    Node next = current.next;
+    next.previous = this.head;
+    this.head.next = next;
+    this.size--;
+    return current.value;
   }
 
-  public int removeLast(int value) {
-    return -1;
+  public int removeLast() {
+    if (this.isEmpty()) return -1;
+    Node current = this.tail.previous;
+    Node previous = current.previous;
+    previous.next = this.tail;
+    this.tail.previous = previous;
+    this.size--;
+    return current.value;
   }
 
-  public int remove(int index, int value) {
-    return -1;
+  public int remove(int index) {
+    if (this.isEmpty()) return -1;
+
+    Node current = this.head.next;
+    int i = 0;
+    while (i < index) {
+      current = current.next;
+      i++;
+    }
+    Node previous = current.previous;
+    Node next = current.next;
+    previous.next = next;
+    next.previous = previous;
+    this.size--;
+    return current.value;
   }
 
-  public void reverse() {}
+  public void reverse() {
+    if (this.isEmpty()) return;
+    Node current = this.head.next;
+    while (current != this.tail) {
+      Node next = current.next;
+      current.next = current.previous;
+      current.previous = next;
+      current = next;
+    }
+
+    Node first = this.head.next;
+    Node last = this.tail.previous;
+    this.head.next = last;
+    this.tail.previous = first;
+    last.previous = this.head;
+    first.next = this.tail;
+  }
 
   static class Node {
     int value;
