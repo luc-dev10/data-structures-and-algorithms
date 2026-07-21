@@ -1,4 +1,4 @@
-package com.lucio.dsa.datastructures.stack;
+package com.lucio.dsa.ds.stack;
 
 public class ArrayStack {
   int[] array = new int[3];

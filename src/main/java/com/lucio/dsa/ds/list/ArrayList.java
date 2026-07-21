@@ -1,4 +1,4 @@
-package com.lucio.dsa.datastructures.list;
+package com.lucio.dsa.ds.list;
 
 public class ArrayList {
   int[] array = new int[3];

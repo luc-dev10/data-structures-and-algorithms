@@ -1,4 +1,4 @@
-package com.lucio.dsa.datastructures.list;
+package com.lucio.dsa.ds.list;
 
 public class SinglyList {
   Node dummy;

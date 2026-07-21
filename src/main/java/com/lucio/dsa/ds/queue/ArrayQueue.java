@@ -1,4 +1,4 @@
-package com.lucio.dsa.datastructures.queue;
+package com.lucio.dsa.ds.queue;
 
 public class ArrayQueue {
   int[] array = new int[3];

@@ -1,4 +1,4 @@
-package com.lucio.dsa.datastructures.deque;
+package com.lucio.dsa.ds.deque;
 
 public class ArrayDeque {
   int[] array = new int[3];
