@@ -6,7 +6,7 @@
     <groupId>com.lucio</groupId>
     <artifactId>dsa</artifactId>
     <version>1.0.0</version>
-    <name>structure</name>
+    <name>Data Structures and Algorithms</name>
     <description>Data Structures and Algorithms</description>
     <properties>
         <java.version>26</java.version>
