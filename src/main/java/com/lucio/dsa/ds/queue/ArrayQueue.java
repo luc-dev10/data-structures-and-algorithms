@@ -1,6 +1,6 @@
 package com.lucio.dsa.ds.queue;
 
-public class ArrayQueue {
+public final class ArrayQueue {
   private final int CAPACITY = 3;
   private final int[] array;
   private int size;

@@ -1,6 +1,6 @@
 package com.lucio.dsa.ds.list;
 
-public class SinglyList {
+public final class SinglyList {
   Node dummy;
   int size;
 

@@ -1,6 +1,6 @@
 package com.lucio.dsa.ds.list;
 
-public class CircularList {
+public final class CircularList {
   private final Node dummy;
   private Node tail;
   private int size;

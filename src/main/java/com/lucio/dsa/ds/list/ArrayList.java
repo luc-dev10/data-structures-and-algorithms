@@ -1,6 +1,6 @@
 package com.lucio.dsa.ds.list;
 
-public class ArrayList {
+public final class ArrayList {
   int[] array = new int[3];
   int size;
 

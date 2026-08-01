@@ -1,6 +1,6 @@
 package com.lucio.dsa.ds.list;
 
-public class DoublyList {
+public final class DoublyList {
   Node head;
   Node tail;
   int size = 0;
