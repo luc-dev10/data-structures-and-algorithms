@@ -11,7 +11,6 @@ public final class SelectionSort {
     for (int i = 0; i < a.length - 1; i++) {
       int min = i;
       for (int j = i + 1; j < a.length; j++) if (a[min] > a[j]) min = j;
-
       if (min != i) {
         int temp = a[i];
         a[i] = a[min];
