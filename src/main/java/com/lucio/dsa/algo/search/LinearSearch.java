@@ -4,7 +4,7 @@ public class LinearSearch {
   public static void main(String[] args) {
     int[] array = new int[] {5, 1, 5, 2, 9, 2, 4, 6, 7, 34, 12, 66, 8};
     int target = 6;
-    System.out.printf("Linear Search for Target %d: %d\n", target, search(array, target));
+    System.out.print(search(array, target));
   }
 
   public static int search(int[] array, int target) {
