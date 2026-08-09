@@ -1,7 +1,7 @@
 package com.lucio.dsa.algo.sort;
 
 public final class SelectionSort {
-  static void main() {
+  public static void main() {
     int[] a = new int[] {3, 0, -1, -3, 3, 6, 2, 5, 7, 8, 11, -10, 4, 2, 9, 1};
     selectionSort(a);
     for (int n : a) System.out.println(n);
