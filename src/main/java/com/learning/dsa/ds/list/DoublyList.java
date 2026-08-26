@@ -1,4 +1,4 @@
-package com.lucio.dsa.ds.list;
+package com.learning.dsa.ds.list;
 
 public final class DoublyList {
   Node head;

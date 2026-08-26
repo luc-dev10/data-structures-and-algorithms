@@ -1,4 +1,4 @@
-package com.lucio.dsa.ds.hasthtable;
+package com.learning.dsa.ds.hasthtable;
 
 import java.util.ArrayList;
 import java.util.List;

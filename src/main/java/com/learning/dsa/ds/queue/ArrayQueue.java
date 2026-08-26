@@ -1,4 +1,4 @@
-package com.lucio.dsa.ds.queue;
+package com.learning.dsa.ds.queue;
 
 public final class ArrayQueue {
   private final int CAPACITY = 3;

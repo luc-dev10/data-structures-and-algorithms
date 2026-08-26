@@ -1,4 +1,4 @@
-package com.lucio.dsa.ds.stack;
+package com.learning.dsa.ds.stack;
 
 public final class ArrayStack {
   private final int LIMIT = 3;

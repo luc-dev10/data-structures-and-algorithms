@@ -1,4 +1,4 @@
-package com.lucio.dsa.algo.search;
+package com.learning.dsa.algo.search;
 
 public class LinearSearch {
   public static void main(String[] args) {

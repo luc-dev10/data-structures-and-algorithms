@@ -1,4 +1,4 @@
-package com.lucio.dsa.algo.sort;
+package com.learning.dsa.algo.sort;
 
 public class BubbleSort {
   public static void main() {
