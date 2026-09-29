@@ -1,5 +1,8 @@
 package com.learning.dsa.ds.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTree {
   public int size;
   private Node root;
@@ -28,6 +31,20 @@ public class BinaryTree {
     this.postOrderTransversal(node.left);
     this.postOrderTransversal(node.right);
     System.out.println(node.value);
+  }
+
+  public void breadthFirstSearch() {
+    if (this.root == null) return;
+
+    Queue<Node> queue = new LinkedList<>();
+    queue.add(this.root);
+
+    while (!queue.isEmpty()) {
+      Node node = queue.poll(); // remove first
+      System.out.println(node.value);
+      if (node.left != null) queue.add(node.left);
+      if (node.right != null) queue.add(node.right);
+    }
   }
 
   public int size() {
