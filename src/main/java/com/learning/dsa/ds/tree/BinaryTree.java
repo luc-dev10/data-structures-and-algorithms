@@ -16,6 +16,13 @@ public class BinaryTree {
     this.preOrderTransversal(node.right);
   }
 
+  public void inOrderTransversal(Node node) {
+    if (node == null) return;
+    this.inOrderTransversal(node.left);
+    System.out.println(node.value);
+    this.inOrderTransversal(node.right);
+  }
+
   public int size() {
     return this.size;
   }
