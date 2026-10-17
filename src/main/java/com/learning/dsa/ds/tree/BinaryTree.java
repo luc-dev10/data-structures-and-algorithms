@@ -1,5 +1,7 @@
 package com.learning.dsa.ds.tree;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -37,6 +39,37 @@ public class BinaryTree {
     if (node == null) return false;
     if (node.value == value) return true;
     return this.search(node.left, value) || this.search(node.right, value);
+  }
+
+  public void insert(int value) {
+    Node node = new Node(value);
+    this.size++;
+
+    if (this.root == null) {
+      this.root = node;
+      return;
+    }
+
+    Deque<Node> dq = new ArrayDeque<>();
+    dq.add(this.root);
+
+    while (!dq.isEmpty()) {
+      Node current = dq.removeFirst();
+
+      if (current.left != null) {
+        dq.add(current.left);
+      } else {
+        current.left = node;
+        return;
+      }
+
+      if (current.right != null) {
+        dq.add(current.right);
+      } else {
+        current.right = node;
+        return;
+      }
+    }
   }
 
   public void breadthFirstSearch() {
