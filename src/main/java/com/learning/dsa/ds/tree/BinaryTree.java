@@ -33,6 +33,12 @@ public class BinaryTree {
     System.out.println(node.value);
   }
 
+  public boolean search(Node node, int value) {
+    if (node == null) return false;
+    if (node.value == value) return true;
+    return this.search(node.left, value) || this.search(node.right, value);
+  }
+
   public void breadthFirstSearch() {
     if (this.root == null) return;
 
