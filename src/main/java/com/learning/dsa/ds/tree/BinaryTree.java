@@ -35,10 +35,15 @@ public class BinaryTree {
     System.out.println(node.value);
   }
 
-  public boolean search(Node node, int value) {
-    if (node == null) return false;
-    if (node.value == value) return true;
-    return this.search(node.left, value) || this.search(node.right, value);
+  private Node searchNode(Node node, int value) {
+    if (node == null) return null;
+    if (node.value == value) return node;
+    Node leftNode = this.searchNode(node.left, value);
+    return leftNode != null ? leftNode : this.searchNode(node.right, value);
+  }
+
+  public boolean search(int value) {
+    return this.searchNode(this.root, value) != null;
   }
 
   public void insert(int value) {
