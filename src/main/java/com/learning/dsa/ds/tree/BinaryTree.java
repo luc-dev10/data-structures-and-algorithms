@@ -189,14 +189,3 @@ public class BinaryTree {
     return 1 + recursiveSize(node.left) + recursiveSize(node.right);
   }
 }
-
-class Node {
-  int value;
-
-  Node left;
-  Node right;
-
-  public Node(int value) {
-    this.value = value;
-  }
-}
