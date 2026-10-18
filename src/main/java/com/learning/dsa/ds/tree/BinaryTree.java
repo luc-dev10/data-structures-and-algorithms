@@ -165,7 +165,7 @@ public class BinaryTree {
     if (node == null) return -1;
     if (node.value == value) return depth;
     int left = depth(node.left, value, depth + 1);
-    if (left != -1) return depth;
+    if (left != -1) return left;
     return depth(node.right, value, depth + 1);
   }
 }
