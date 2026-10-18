@@ -9,6 +9,10 @@ public class BinarySearchTree {
     this.size = 0;
   }
 
+  public int size() {
+    return this.size;
+  }
+
   // ___________________________
   // ___________________________
 
