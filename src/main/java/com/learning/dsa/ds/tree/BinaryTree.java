@@ -156,6 +156,18 @@ public class BinaryTree {
       this.size--;
     }
   }
+
+  // _________________________________
+  // _________________________________
+
+  // Depth
+  public int depth(Node node, int value, int depth) {
+    if (node == null) return -1;
+    if (node.value == value) return depth;
+    int left = depth(node.left, value, depth + 1);
+    if (left != -1) return depth;
+    return depth(node.right, value, depth + 1);
+  }
 }
 
 class Node {
