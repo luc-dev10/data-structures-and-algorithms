@@ -179,6 +179,15 @@ public class BinaryTree {
     int right = height(node.right);
     return 1 + Math.max(left, right);
   }
+
+  // _________________________________
+  // _________________________________
+
+  // Size
+  public int recursiveSize(Node node) {
+    if (node == null) return 0;
+    return 1 + recursiveSize(node.left) + recursiveSize(node.right);
+  }
 }
 
 class Node {
