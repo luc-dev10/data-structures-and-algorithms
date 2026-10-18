@@ -168,6 +168,17 @@ public class BinaryTree {
     if (left != -1) return left;
     return depth(node.right, value, depth + 1);
   }
+
+  // _________________________________
+  // _________________________________
+
+  // Height
+  public int height(Node node) {
+    if (node == null) return -1;
+    int left = height(node.left);
+    int right = height(node.right);
+    return 1 + Math.max(left, right);
+  }
 }
 
 class Node {
