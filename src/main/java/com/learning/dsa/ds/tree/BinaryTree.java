@@ -156,36 +156,4 @@ public class BinaryTree {
       this.size--;
     }
   }
-
-  // _________________________________
-  // _________________________________
-
-  // Depth
-  public int depth(Node node, int value, int depth) {
-    if (node == null) return -1;
-    if (node.value == value) return depth;
-    int left = depth(node.left, value, depth + 1);
-    if (left != -1) return left;
-    return depth(node.right, value, depth + 1);
-  }
-
-  // _________________________________
-  // _________________________________
-
-  // Height
-  public int height(Node node) {
-    if (node == null) return -1;
-    int left = height(node.left);
-    int right = height(node.right);
-    return 1 + Math.max(left, right);
-  }
-
-  // _________________________________
-  // _________________________________
-
-  // Size
-  public int recursiveSize(Node node) {
-    if (node == null) return 0;
-    return 1 + recursiveSize(node.left) + recursiveSize(node.right);
-  }
 }
